@@ -57,9 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     
-
     function conditionalCheckboxes(){
-        
         var powerGroup = [
             '484581_50245pi_484581_50245_518127',
             '484581_50245pi_484581_50245_518131',
@@ -79,25 +77,7 @@ document.addEventListener('DOMContentLoaded', function(){
         var bothValue = '521479';
 
         var powerIsSelected = powerGroup.some(isChecked);
-        var gasIsSelected = false;
-
-        powerGroup.forEach(function(selector){
-            var checkbox = form.querySelector('[name="'+selector+'"]');
-            
-            if(checkbox.checked == true){
-                powerIsSelected = true;
-                depField.value = powerValue;
-            }
-        });
-        
-        gasGroup.forEach(function(selector){
-            var checkbox = form.querySelector('[name="'+selector+'"]');
-            
-            if(checkbox.checked == true){
-                gasIsSelected = true;
-                depField.value = gasValue;
-            }
-        });
+        var gasIsSelected = gasGroup.some(isChecked);
 
         if(gasIsSelected && powerIsSelected){
             depField.value = bothValue;
@@ -116,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         if ("createEvent" in document) {
+            console.log('works using array.some');
             var evt = document.createEvent("HTMLEvents");
             evt.initEvent("change", false, true);
             depField.dispatchEvent(evt);
@@ -124,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function isChecked(name){
         var checkbox = form.querySelector('[name="'+name+'"]');
-        
+
         return checkbox.checked;
     }
-
+    
     function setTextareaRows(){
         //set the height of the textarea field
         if(typeof textarea !== "undefined" && textarea !== null){
