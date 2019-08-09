@@ -58,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     
     function conditionalCheckboxes(){
+        
+        /*maps a group of checkboxes to a hidden dropdown because Pardot is Pardot. 
+        only a dropdown can control show/hide conditional logic... sigh*/
+
+        //name attributes of the power-related checkboxes
         var powerGroup = [
             '484581_50245pi_484581_50245_518127',
             '484581_50245pi_484581_50245_518131',
@@ -66,11 +71,14 @@ document.addEventListener('DOMContentLoaded', function(){
             '484581_50245pi_484581_50245_518137'
         ];
 
+        //name attributes of the gas-related checkboxes
         var gasGroup = [
             '484581_50245pi_484581_50245_518129',
         ];
 
         var depField = form.querySelector('.Dependent_Field_Controller select');
+        
+        //possible values the hidden select field
         var noneValue = '521473';
         var gasValue = '521475';
         var powerValue = '521477';
@@ -96,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         if ("createEvent" in document) {
-            console.log('works using array.some');
             var evt = document.createEvent("HTMLEvents");
             evt.initEvent("change", false, true);
             depField.dispatchEvent(evt);
