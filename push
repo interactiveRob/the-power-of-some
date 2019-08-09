@@ -1,0 +1,2 @@
+#!/bin/bash
+scp ci-forms-script.js ci-forms-style.css interactiverob:/home/interac6/sites/foralltouse/temp/ceg-assets/
