@@ -313,12 +313,13 @@ ul.parsley-errors-list li.parsley-maxlength:before , ul.parsley-errors-list li.p
 }
 
 .px-30{
-    padding: 0 30px 0 30px;
+    margin: 0 20px 0 20px;
 }
 
 @media screen and (max-width: 480px){
-    .px-30{
-        padding: 0 20px 0 20px;
+    
+    .pd-checkbox.form-field.error::before{
+        top: 60px;
     }
 }
 
@@ -329,6 +330,8 @@ ul.parsley-errors-list li.parsley-maxlength:before , ul.parsley-errors-list li.p
 .form-field{
     position: relative;
 }
+
+
 
 .form-field.error::before{
     content: attr(data-err-msg);
